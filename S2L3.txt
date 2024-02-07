@@ -1,0 +1,57 @@
+	ESERCIZIO 1
+SELECT count(*) as NumeroTotaleOrdini
+  FROM [northwind].[dbo].[Orders]
+
+	ESERCIZIO 2
+SELECT count(*) as NumeroTotaleClienti
+  FROM [northwind].[dbo].[Customers]
+
+	ESERCIZIO 3
+SELECT count(*) as NumeroTotaleClientiLondra
+  FROM [northwind].[dbo].[Customers]
+  where City = 'London'
+
+	ESERCIZIO 4
+SELECT AVG(Freight) as Media
+  FROM [northwind].[dbo].[Orders]
+
+	ESERCIZIO 5
+SELECT AVG(Freight) as Media
+  FROM [northwind].[dbo].[Orders]
+  where CustomerID = 'BOTTM'
+
+	ESERCIZIO 6
+SELECT CustomerID, sum(Freight) as SpesaPerCliente
+  FROM [northwind].[dbo].[Orders]
+  GROUP BY CustomerID
+
+	ESERCIZIO 7
+SELECT City, count(*) as ConteggioCustomerPerCity
+  FROM [northwind].[dbo].[Customers]
+  GROUP BY City
+
+	ESERCIZIO 8
+SELECT OrderID, sum(UnitPrice*Quantity) as UnitPriceAndQuantity
+  FROM [northwind].[dbo].[Order Details]
+  GROUP BY OrderID
+
+	ESERCIZIO 9
+SELECT OrderID, sum(UnitPrice*Quantity) as UnitPriceAndQuantity
+  FROM [northwind].[dbo].[Order Details]
+  GROUP BY OrderID
+  HAVING OrderID = 10248
+
+	ESERCIZIO 10
+SELECT count(CategoryID) as NumProdottiCensiti
+  FROM [northwind].[dbo].[Products]
+  GROUP BY CategoryID
+
+	ESERCIZIO 11
+SELECT ShipCountry, count(*) as TotaleOrdiniPerPaese
+  FROM [northwind].[dbo].[Orders]
+  GROUP BY ShipCountry
+
+	ESERCIZIO 12
+SELECT ShipCountry, AVG(Freight)
+  FROM [northwind].[dbo].[Orders]
+  GROUP BY ShipCountry
